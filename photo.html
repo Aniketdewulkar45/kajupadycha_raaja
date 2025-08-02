@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photo Gallery - SARVAJANIK GANESHUTSAV MANDAL KAJUPADYACHA RAJA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-mYcgZK2JvO8W8pyVqzAnOkF3nKaP4Y+wpt0KivV6a9aX0XvJG6LbBOpzAbPQ6FVmgcycTuV0EgmG6Llqp+o1XQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+      background-color: #ff6f3c;
+    }
+
+    .mandal-img {
+      width: 100%;
+      height: 40vh;
+      object-fit: cover;
+    }
+
+    .navbar {
+      background-color: #ffd0b6;
+      padding: 15px 0;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-logo {
+      background-color: #e65100;
+      color: white;
+      font-weight: bold;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #3e2723;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+
+    .nav-links a:hover {
+      background-color: #ffcfa4;
+    }
+
+    .gallery-section {
+      background-color: #fff3e0;
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 40px 30px;
+      border-radius: 16px;
+    }
+
+    .gallery-section h2 {
+      font-size: 1.8rem;
+      color: #ff6f00;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .filter-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .filter-container select {
+      padding: 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .photo-item {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .photo-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .caption {
+      margin-top: 10px;
+      font-weight: 600;
+      color: #4e342e;
+    }
+
+    .rhyme {
+      font-size: 0.95rem;
+      color: #6d4c41;
+      margin-top: 6px;
+      font-style: italic;
+    }
+
+    #lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: #3e2723;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 25px;
+        flex-direction: column;
+      }
+    }
+    nav {
+  background: linear-gradient(90deg, #ff3c00, #ff7300);
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+nav .left-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav .logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: white;
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  white-space: nowrap;
+  animation: scaleLogo 1s ease-out;
+}
+
+@keyframes scaleLogo {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+nav .menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0.5rem 0;
+  transition: max-height 0.5s ease-in-out;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 0%;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav ul li a:hover {
+  color: #fff8e1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  nav .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    max-height: 0;
+    overflow: hidden;
+    width: 100%;
+    background: linear-gradient(90deg, #ff3c00, #ff7300);
+    margin: 0;
+    padding: 0;
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  nav ul.active {
+    max-height: 500px;
+    padding: 0.5rem 0;
+  }
+
+  nav ul li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+  }
+
+  nav ul li a i {
+    margin-right: 8px;
+    color: #212121;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover i {
+    color: #fff8e1;
+  }
+}
+.hero {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.hero img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hero img {
+    max-height: 250px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hero" data-aos="fade-up">
+  <img src="images/banner1.jpg" alt="Ganesh Mandal Banner">
+</header>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="left-section">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="logo">KAJUPADYACHA-RAJA</div>
+  </div>
+  <ul id="nav-links">
+    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="donation.html"><i class="fas fa-hand-holding-heart"></i> Donation</a></li>
+    <li><a href="activities.html"><i class="fas fa-calendar-check"></i> Activities</a></li>
+    <li><a href="photo.html"><i class="fas fa-image"></i> Gallery</a></li>
+    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+  </ul>
+</nav>
+
+
+<!-- PHOTO GALLERY -->
+<section class="gallery-section" data-aos="fade-up">
+  <h2>📸 Ganesh Utsav Moments Over the Years</h2>
+
+  <!-- Filter Dropdown -->
+  <div class="filter-container">
+    <label for="yearFilter">🔍 Filter by Year: </label>
+    <select id="yearFilter" onchange="filterImages()">
+      <option value="all">Show All</option>
+      <option value="2024">2024</option>
+      <option value="2022">2022</option>
+      <option value="2022">2023</option>
+      <option value="2020">2020</option>
+      <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+      <option value="2015">2015</option>
+    </select>
+  </div>
+
+  <div class="gallery" id="gallery" data-aos="fade-up">
+    <!-- Photo Cards -->
+    <div class="photo-item" data-year="2024" data-aos="fade-up">
+      <img src="images/2024.jpg" onclick="openLightbox(this.src)">
+      <p class="caption">Ganpati 2024</p>
+      <p class="rhyme">बाप्पाचा दरबार, भक्तांचा जयजयकार!</p>
+    </div>
+      <div class="photo-item" data-year="2024" data-aos="fade-up">
+      <img src="images/2023.jpg" onclick="openLightbox(this.src)">
+      <p class="caption">Ganpati 2023</p>
+      <p class="rhyme">बाप्पाचा दरबार, भक्तांचा जयजयकार!</p>
+    </div>
+    <div class="photo-item" data-year="2022" data-aos="fade-up">
+      <img src="images/2022.jpg" onclick="openLightbox(this.src)">
+      <p class="caption">Ganpati 2022</p>
+      <p class="rhyme">फुलांनी सजला, बाप्पा घरी आला!</p>
+    </div>
+    <div class="photo-item" data-year="2020" data-aos="fade-up">
+      <img src="images/2020.jpg" onclick="openLightbox(this.src)">
+      <p class="caption">Ganpati 2020</p>
+      <p class="rhyme">मास्क घालून आलो, बाप्पाला वंदन घातलं!</p>
+    </div>
+    <div class="photo-item" data-year="2019" data-aos="fade-up">
+      <img src="images/2019.jpg" onclick="openLightbox(this.src)">
+      <p class="caption">Ganpati 2019</p>
+      <p class="rhyme">गजर बाप्पाचा, उरात भक्तीचा!</p>
+    </div>
+    <div class="photo-item" data-year="2018" data-aos="fade-up">
+      <img src="images/2018.jpg" onclick="openLightbox(this.src)">
+      <p class="caption">Ganpati 2018</p>
+      <p class="rhyme">आनंदाचा सण, बाप्पाची भव्य मूर्ती धन!</p>
+    </div>
+    <div class="photo-item" data-year="2017" data-aos="fade-up">
+      <img src="images/2017.jpg" onclick="openLightbox(this.src)">
+      <p class="caption">Ganpati 2017</p>
+      <p class="rhyme">नाद गजराचा, दरबार बाप्पाचा!</p>
+    </div>
+    <div class="photo-item" data-year="2016" data-aos="fade-up">
+      <img src="images/2016.jpg.jpg" onclick="openLightbox(this.src)">
+      <p class="caption">Ganpati 2016</p>
+      <p class="rhyme">भक्तीमय वातावण, बाप्पाची आरती रंगलेली!</p>
+    </div>
+    <div class="photo-item" data-year="2015" data-aos="fade-up">
+      <img src="images/2015.jpg" onclick="openLightbox(this.src)">
+      <p class="caption">Ganpati 2015</p>
+      <p class="rhyme">मोदकाचा थाळा, बाप्पासाठी साजरा झाला!</p>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="this.style.display='none'" data-aos="fade-up">
+  <img id="lightbox-img" src="" alt="Preview">
+</div>
+
+<!-- FOOTER -->
+<footer data-aos="fade-up">
+  <p>© 2025 SARVAJANIK GANESHUTSAV MANDAL KAJUPADYACHA RAJA. All Rights Reserved.</p>
+</footer>
+
+<!-- JS -->
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox').style.display = 'flex';
+    document.getElementById('lightbox-img').src = src;
+  }
+
+  function filterImages() {
+    const selectedYear = document.getElementById('yearFilter').value;
+    const images = document.querySelectorAll('.photo-item');
+
+    images.forEach(img => {
+      if (selectedYear === "all" || img.getAttribute("data-year") === selectedYear) {
+        img.style.display = "block";
+      } else {
+        img.style.display = "none";
+      }
+    });
+  }
+</script>
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById("nav-links");
+    navLinks.classList.toggle("active");
+  }
+</script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
+
+</body>
+</html>

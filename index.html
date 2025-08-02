@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SARVAJANIK GANESHUTSAV MANDAL KAJUPADYACHA RAJA</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-mYcgZK2JvO8W8pyVqzAnOkF3nKaP4Y+wpt0KivV6a9aX0XvJG6LbBOpzAbPQ6FVmgcycTuV0EgmG6Llqp+o1XQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-mYcgZK2JvO8W8pyVqzAnOkF3nKaP4Y+wpt0KivV6a9aX0XvJG6LbBOpzAbPQ6FVmgcycTuV0EgmG6Llqp+o1XQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+  <style>
+ html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff9800, #f44336, #ffeb3b);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+}
+
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .hero img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* NEWS SECTION */
+    .news-section {
+      background-color: #fff3e0;
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: 30px auto;
+      border-radius: 12px;
+    }
+
+    .news-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .news-item img {
+      width: 120px;
+      height: auto;
+      margin-right: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+
+    .news-section h2 {
+      font-size: 1.8rem;
+      color: #ff6f00;
+      margin-bottom: 20px;
+    }
+
+    /* ABOUT SECTION */
+    .about-us {
+      background-color: #ffe0c1;
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: 30px auto;
+      border-radius: 12px;
+    }
+
+    /* DEVOTION METER */
+    .devotion-meter {
+      margin-top: 25px;
+    }
+
+    .devotion-label {
+      font-weight: 600;
+      color: #bf360c;
+      margin-bottom: 8px;
+    }
+
+    .meter-bar {
+      background-color: #ddd;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 20px;
+    }
+
+    .meter-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ff9800, #ff5722);
+      width: 0%;
+      animation: fillMeter 5s forwards;
+    }
+
+    .mandal-img {
+      width: 100%;
+      height: 40vh;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    @keyframes fillMeter {
+      100% { width: 85%; }
+    }
+
+    /* FOOTER & SCROLL */
+    footer {
+      background-color: #3e2723;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    #scrollTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      font-size: 20px;
+      background-color: #f4511e;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 12px 16px;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    #scrollTopBtn:hover {
+      background-color: #f4511e;
+    }
+
+    /* RESPONSIVE NAVBAR */
+    * {
+      box-sizing: border-box;
+    }
+nav {
+  background: linear-gradient(90deg, #ff3c00, #ff7300);
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+nav .left-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav .logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: white;
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  white-space: nowrap;
+  animation: scaleLogo 1s ease-out;
+}
+
+@keyframes scaleLogo {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+nav .menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0.5rem 0;
+  transition: max-height 0.5s ease-in-out;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 0%;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav ul li a:hover {
+  color: #fff8e1;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  nav .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    max-height: 0;
+    overflow: hidden;
+    width: 100%;
+    background: linear-gradient(90deg, #ff3c00, #ff7300);
+    margin: 0;
+    padding: 0;
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  nav ul.active {
+    max-height: 500px;
+    padding: 0.5rem 0;
+  }
+
+  nav ul li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+  }
+  nav ul li a i {
+  margin-right: 8px;
+  color: #212121;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover i {
+  color: #fff8e1;
+}
+
+}
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+  </style>
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<header class="hero" data-aos="fade-up">
+
+  <img src="images/banner1.jpg" alt="Ganesh Mandal Banner">
+</header>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="left-section">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="logo">KAJUPADYACHA-RAJA</div>
+  </div>
+<ul id="nav-links">
+  <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+
+  <li><a href="donation.html"><i class="fas fa-hand-holding-heart"></i> Donation</a></li>
+  <li><a href="activities.html"><i class="fas fa-calendar-check"></i> Activities</a></li>
+  <li><a href="photo.html"><i class="fas fa-image"></i> Gallery</a></li>
+  <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+</ul>
+
+</nav>
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById("nav-links");
+    navLinks.classList.toggle("active");
+  }
+</script>
+
+<!-- NEWS -->
+<section class="news-section" data-aos="fade-up">
+
+  <h2>🗞️ News & Latest Updates</h2>
+  <div class="news-item" data-aos="fade-up" data-aos-delay="100">
+
+    <img src="images/mandapdeco.jpg" alt="Mandap Decoration">
+    <p><strong>20 July:</strong> Decoration of Mandap has started for 2025 Utsav!</p>
+  </div>
+<div class="news-item" data-aos="fade-up" data-aos-delay="100">
+
+    <img src="images/ganeshidol.jpg" alt="Ganesh Idol">
+    <p><strong>22 July:</strong> Artist Ganesh Idol arriving this week. Stay tuned!</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-us" data-aos="fade-up">
+
+  <h2>About Us</h2>
+  <p>We are a vibrant cultural group from Kajupada, dedicated to celebrating Ganesh Utsav with devotion, unity, and grandeur.</p>
+
+  <div class="devotion-meter" data-aos="fade-up" data-aos-delay="150">
+
+    <div class="devotion-label">❤️ Devotion Meter:</div>
+    <div class="meter-bar">
+      <div class="meter-fill"></div>
+    </div>
+  </div>
+
+  <h3>Core Committee Members</h3>
+  <ul>
+    <li>1. Kavish Dewulkar – 9876543210</li>
+    <li>2. Azad saloon – 9823456789</li>
+    <li>3. JD – 9765432189</li>
+    <li>4. Priya Deshmukh – 9945671234</li>
+    <li>5. Anil Mehta – 9123456780</li>
+    <li>6. Sneha Pawar – 9834567890</li>
+    <li>7. Rahul Yadav – 9898989898</li>
+    <li>8. Kiran Kulkarni – 9876512345</li>
+    <li>9. Vandana Singh – 9789654321</li>
+    <li>10. Mahesh Bhosale – 9678901234</li>
+  </ul>
+</section>
+
+<!-- FOOTER -->
+<footer data-aos="fade-up">
+
+  <p>© 2025 SARVAJANIK GANESHUTSAV MANDAL KAJUPADYACHA RAJA. All Rights Reserved.</p>
+</footer>
+
+<!-- SCROLL TOP BUTTON -->
+<button onclick="topFunction()" id="scrollTopBtn" title="Go to top">⬆️</button>
+
+<!-- JS -->
+<script>
+  const scrollBtn = document.getElementById("scrollTopBtn");
+  window.onscroll = () => {
+    scrollBtn.style.display = (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) ? "block" : "none";
+  };
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
+  // Devotion meter animation
+  window.onload = function () {
+    document.querySelector('.meter-fill').style.width = '85%';
+  };
+</script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 500,  // animation duration in ms
+    once: true       // animation happens only once while scrolling
+  });
+</script>
+
+</body>
+</html>

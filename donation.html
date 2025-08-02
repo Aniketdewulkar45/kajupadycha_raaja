@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donation - SARVAJANIK GANESHUTSAV MANDAL KAJUPADYACHA RAJA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-mYcgZK2JvO8W8pyVqzAnOkF3nKaP4Y+wpt0KivV6a9aX0XvJG6LbBOpzAbPQ6FVmgcycTuV0EgmG6Llqp+o1XQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+      background-color: #ff6f3c;
+    }
+
+    .mandal-img {
+      width: 100%;
+      height: 40vh;
+      object-fit: cover;
+    }
+
+    .navbar {
+      background-color: #ffd0b6;
+      padding: 15px 0;
+      position: relative;
+      top: 0;
+      z-index: 999;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nav-logo {
+      background-color: #e65100;
+      color: white;
+      font-weight: bold;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #3e2723;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.2s;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+
+    .nav-links a:hover {
+      background-color: #ffcfa4;
+    }
+
+    .donation-section {
+      background-color: #fff3e0;
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .donation-section h2 {
+      font-size: 1.8rem;
+      color: #ff6f00;
+      margin-bottom: 20px;
+    }
+
+    .donation-section p {
+      font-size: 1.1rem;
+      color: #4e342e;
+      line-height: 1.7;
+    }
+
+    .top-donors, .upi-donation {
+      background-color: #ffe0c1;
+      padding: 25px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    .top-donors h3, .upi-donation h3 {
+      margin-bottom: 15px;
+      color: #bf360c;
+    }
+
+    .top-donors ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .top-donors li {
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .upi-info {
+      margin-top: 15px;
+    }
+
+    .upi-info p {
+      margin: 8px 0;
+    }
+
+    .upi-qr {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .upi-qr img {
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+      border: 2px solid #e65100;
+    }
+
+    footer {
+      background-color: #3e2723;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 25px;
+        flex-direction: column;
+      }
+    }
+    nav {
+  background: linear-gradient(90deg, #ff3c00, #ff7300);
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+nav .left-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav .logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: white;
+  font-family: 'Baloo Bhaijaan 2', cursive;
+  white-space: nowrap;
+  animation: scaleLogo 1s ease-out;
+}
+
+@keyframes scaleLogo {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+nav .menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+nav ul {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 0.5rem 0;
+  transition: max-height 0.5s ease-in-out;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 0%;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav ul li a:hover {
+  color: #fff8e1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  nav .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    max-height: 0;
+    overflow: hidden;
+    width: 100%;
+    background: linear-gradient(90deg, #ff3c00, #ff7300);
+    margin: 0;
+    padding: 0;
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  nav ul.active {
+    max-height: 500px;
+    padding: 0.5rem 0;
+  }
+
+  nav ul li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  nav ul li:last-child {
+    border-bottom: none;
+  }
+
+  nav ul li a {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+  }
+
+  nav ul li a i {
+    margin-right: 8px;
+    color: #212121;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover i {
+    color: #fff8e1;
+  }
+}.hero {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.hero img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hero img {
+    max-height: 250px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hero" data-aos="fade-up">
+  <img src="images/banner1.jpg" alt="Ganesh Mandal Banner">
+</header>
+
+
+<!-- NAVIGATION -->
+<!-- NAVBAR -->
+<nav>
+  <div class="left-section">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="logo">KAJUPADYACHA-RAJA</div>
+  </div>
+  <ul id="nav-links">
+    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="donation.html"><i class="fas fa-hand-holding-heart"></i> Donation</a></li>
+    <li><a href="activities.html"><i class="fas fa-calendar-check"></i> Activities</a></li>
+    <li><a href="photo.html"><i class="fas fa-image"></i> Gallery</a></li>
+    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+  </ul>
+</nav>
+
+
+<!-- DONATION INFO -->
+<section class="donation-section" data-aos="fade-up">
+  <h2>🙏 Support the Mandal</h2>
+  <p>Your generous donations help us organize grand and devotional Ganesh Utsav celebrations every year. Every rupee counts and contributes to our vibrant community celebration. Be part of this divine cause!</p>
+
+  <!-- Top Donors Section -->
+  <div class="top-donors" data-aos="fade-up">
+    <h3>🏆 Top Donors of 2024</h3>
+    <ul>
+      <li>💰 Rohit Patil – ₹25,000</li>
+      <li>💰 Kavita Shinde – ₹18,000</li>
+      <li>💰 Anil Mehta – ₹15,500</li>
+      <li>💰 Sneha Pawar – ₹13,000</li>
+      <li>💰 JD Bhai – ₹10,000</li>
+    </ul>
+  </div>
+
+  <!-- UPI Donation Section -->
+  <div class="upi-donation" data-aos="fade-up">
+    <h3>📲 Donate via UPI</h3>
+    <div class="upi-info" data-aos="fade-up">
+      <p><strong>Name:</strong> ABC</p>
+      <p><strong>Bank:</strong> Demo Bank</p>
+      <p><strong>Payment Method:</strong> UPI / Google Pay / PhonePe</p>
+      <p><strong>UPI ID:</strong> abc@demo</p>
+    </div>
+ <div class="upi-qr" data-aos="fade-up">
+  <img src="images/upi-qr.png" alt="Dummy QR Code for UPI" />
+  <p>Scan the QR code to donate</p>
+
+  <div style="margin-top: 20px; font-weight: 600; color: green;" data-aos="fade-up">
+    🙏 Thank you for your generous donation!
+  </div>
+  <div style="margin-top: 10px; font-style: italic; color: #6d4c41;" data-aos="fade-up">
+    "Your small contribution can bring a big celebration!"
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer data-aos="fade-up">
+  <p>© 2025 SARVAJANIK GANESHUTSAV MANDAL KAJUPADYACHA RAJA. All Rights Reserved.</p>
+</footer>
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById("nav-links");
+    navLinks.classList.toggle("active");
+  }
+</script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
+
+</body>
+</html>
