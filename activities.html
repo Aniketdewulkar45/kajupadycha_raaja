@@ -403,6 +403,46 @@ nav ul li a:hover {
     once: true
   });
 </script>
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbzFfxut4Xdn1CGX95eugdoDbLH3DrbolHCg-O_GxmGrNQGvyDCpuQ3Kisb2W2yPK57mcQ/exec"; // ✅ use your deployed Apps Script URL here
+
+  function handleRegistration() {
+    const name = document.getElementById("reg-name").value.trim();
+    const age = document.getElementById("reg-age").value.trim();
+    const contact = document.getElementById("reg-contact").value.trim();
+    const activity = document.getElementById("activity-select").value.trim();
+
+    // Validate input
+    if (!name || !age || !contact || !activity) {
+      document.getElementById("registration-msg").innerText = "⚠️ Please fill all fields!";
+      return false;
+    }
+
+    // Create form data
+    const formData = new FormData();
+    formData.append("Name", name);
+    formData.append("Age", age);
+    formData.append("Contact", contact);
+    formData.append("Activity", activity);
+
+    // Send to Google Sheet via Apps Script
+    fetch(scriptURL, {
+      method: "POST",
+      body: formData
+    })
+    .then(response => {
+      document.getElementById("registration-msg").innerText = "✅ Registration successful!";
+      document.getElementById("registration-form").reset();
+    })
+    .catch(error => {
+      document.getElementById("registration-msg").innerText = "❌ Registration failed. Try again!";
+      console.error("Error!", error.message);
+    });
+
+    return false; // Prevent page reload
+  }
+</script>
+
 
 </body>
 </html>
