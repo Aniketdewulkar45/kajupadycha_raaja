@@ -1,4 +1,4 @@
-// ✅ Countdown to Ganesh Chaturthi (Sept 6, 2025)
+// Countdown to Ganesh Chaturthi (Sept 6, 2025)
 const countdown = document.getElementById("countdown");
 const ganeshDate = new Date("2025-09-06T00:00:00").getTime();
 
@@ -19,45 +19,23 @@ setInterval(() => {
   countdown.innerHTML = `⏳ ${days}d ${hrs}h ${mins}m ${secs}s left`;
 }, 1000);
 
-// ✅ Lightbox Gallery
-function openLightbox(img) {
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  lightboxImg.src = img.src;
-  lightbox.style.display = "flex";
-}
-
-function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
-}
-
-// ✅ Toggle Activity Details
-function toggleActivity(element) {
-  const details = element.querySelector(".activity-details");
-  const allDetails = document.querySelectorAll('.activity-details');
-  allDetails.forEach(el => el.style.display = 'none');
-  details.style.display = (details.style.display === "block") ? "none" : "block";
-}
-
-// ✅ Auto-expand Today’s Activity (for demo, expands 2nd on Aug 2)
+// Auto-expand today's activity (for demo: expands 2nd activity on Aug 2)
 document.addEventListener("DOMContentLoaded", () => {
   const today = new Date().getDate();
   const activities = document.querySelectorAll('.activities-section li');
 
   if (today === 2 && activities[1]) {
-    toggleActivity(activities[1]);
+    activities[1].classList.add("highlight");
   }
 
-  // ✅ Initialize AOS (Animate On Scroll)
   if (typeof AOS !== 'undefined') AOS.init();
 });
 
-// ✅ Countdown to Main Event (Murti Sthapana)
+// Countdown to Murti Sthapana (Sept 4, 2025)
 function updateEventCountdown() {
   const eventDate = new Date("2025-09-04T08:00:00").getTime();
   const now = new Date().getTime();
   const distance = eventDate - now;
-
   const display = document.getElementById("event-countdown");
   if (!display) return;
 
@@ -75,7 +53,7 @@ function updateEventCountdown() {
 }
 setInterval(updateEventCountdown, 1000);
 
-// ✅ Slot Booking Submission
+// Slot Booking (if any form is present)
 function submitBooking() {
   const name = document.getElementById('book-name').value.trim();
   const contact = document.getElementById('book-contact').value.trim();
@@ -89,21 +67,45 @@ function submitBooking() {
   document.getElementById("booking-form").reset();
   return false;
 }
+
+// Handle Registration Form Submission
 function handleRegistration() {
   const name = document.getElementById("reg-name").value.trim();
   const age = document.getElementById("reg-age").value.trim();
   const contact = document.getElementById("reg-contact").value.trim();
   const activity = document.getElementById("activity-select").value;
 
+  const msgBox = document.getElementById("registration-msg");
+
   if (!name || !age || !contact || !activity) {
-    alert("Please fill all fields.");
+    msgBox.textContent = "⚠️ Please fill all fields!";
+    msgBox.style.color = "red";
     return false;
   }
 
-  const msg = `✅ Thank you, ${name}! You have successfully registered for the ${activity}.`;
-  document.getElementById("registration-msg").innerText = msg;
+  const formData = new FormData();
+  formData.append("Name", name);
+  formData.append("Age", age);
+  formData.append("Contact", contact);
+  formData.append("Activity", activity);
 
-  // Reset the form
-  document.getElementById("registration-form").reset();
+  // ✅ YOUR SPREADSHEET SCRIPT URL
+  const scriptURL = "https://script.google.com/macros/s/AKfycbzFfxut4Xdn1CGX95eugdoDbLH3DrbolHCg-O_GxmGrNQGvyDCpuQ3Kisb2W2yPK57mcQ/exec";
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: formData
+  })
+    .then((res) => {
+      msgBox.textContent = "✅ Registration successful!";
+      msgBox.style.color = "green";
+      document.getElementById("registration-form").reset();
+    })
+    .catch((err) => {
+      msgBox.textContent = "❌ Registration failed. Try again!";
+      msgBox.style.color = "red";
+      console.error("Error:", err);
+    });
+
   return false;
 }
